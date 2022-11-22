@@ -20,8 +20,9 @@
         "next": "12.2.2",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "video.js": "^7.19.2"
-    },
+        "video.js": "^7.19.2",
+        "obs-websocket-js": "^5.0.1"
+      },
     "devDependencies": {
         "@emotion/babel-plugin": "^11.9.2",
         "@types/node": "18.0.5",

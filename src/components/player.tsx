@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import videojs, { VideoJsPlayer } from 'video.js'
 import 'video.js/dist/video-js.css'
+import { ObsMediaStatus } from './obsMediaStatus'
 
 declare function registerIVSTech(
   vjs: typeof videojs,
@@ -8,10 +9,12 @@ declare function registerIVSTech(
 ): void
 
 type Props = {
-  playBackUrl?: string
+  playBackUrl?: string,
+  obsUrl?: string,
+  obsPassword?: string
 }
 
-export const Player: React.FC<Props> = ({ playBackUrl }) => {
+export const Player: React.FC<Props> = ({ playBackUrl, obsUrl, obsPassword }) => {
   const playerRef = useRef<VideoJsPlayer>()
   const videoElement = useRef<HTMLVideoElement>(null)
 
@@ -54,6 +57,10 @@ export const Player: React.FC<Props> = ({ playBackUrl }) => {
         playsInline
         muted={false}
       />
+      <ObsMediaStatus
+        obsUrl={obsUrl}
+        obsPassword={obsPassword}
+       />
     </div>
   )
 }

@@ -46,11 +46,11 @@ const Home: NextPage = () => {
     <div>
       <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
         {data.map((track) => (
-          <Item>
+          <Item key={track['name']}>
             <div css={Overlay}>
               <a href={track['name']}>{track['name']}</a>
             </div>
-            <Player playBackUrl={track['videoId']} />
+            <Player playBackUrl={track['videoId']} obsUrl={track['obsUrl']} obsPassword={track['obsPassword']} />
           </Item>
         ))}
         <Item>
