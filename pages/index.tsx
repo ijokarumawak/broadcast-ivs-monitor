@@ -50,7 +50,11 @@ const Home: NextPage = () => {
             <div css={Overlay}>
               <a href={track['name']}>{track['name']}</a>
             </div>
-            <Player playBackUrl={track['videoId']} obsUrl={track['obsUrl']} obsPassword={track['obsPassword']} />
+            <Player
+              playBackUrl={track['videoId']}
+              obsUrl={track['obsUrl']}
+              obsPassword={track['obsPassword']}
+            />
           </Item>
         ))}
         <Item>

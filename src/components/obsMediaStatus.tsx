@@ -81,17 +81,19 @@ export const ObsMediaStatus: React.FC<Props> = ({obsUrl, obsPassword}) => {
   
       // TODO: Somehow, something updates the mediaInputName. This code should be moved at the beginning to set the initial 
       const inputList = await sendCommand('GetInputList', {inputKind: 'vlc_source'})
-      inputList['inputs'].forEach(async (element:any) => {
-        const inputName = {inputName: element['inputName']}
-        const media = await sendCommand('GetMediaInputStatus', inputName)
-        if (media['mediaState'] === 'OBS_MEDIA_STATE_PLAYING') {
-          console.log('Found active media', media)
-          setMediaInputName(inputName)
-        }
-      });
+      if (inputList && inputList['inputs']) {
+        inputList['inputs'].forEach(async (element:any) => {
+          const inputName = {inputName: element['inputName']}
+          const media = await sendCommand('GetMediaInputStatus', inputName)
+          if (media['mediaState'] === 'OBS_MEDIA_STATE_PLAYING') {
+            console.log('Found active media', media)
+            setMediaInputName(inputName)
+          }
+        })
+      }
 
       let interval: any = setInterval(async () => {
-        // console.log(mediaInputName['inputName'].length);
+        console.log(mediaInputName['inputName'].length);
         if (mediaInputName['inputName'].length == 0) {
           return;
         }

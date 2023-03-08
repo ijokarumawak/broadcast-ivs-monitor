@@ -38,6 +38,10 @@ export const AudioCapture: React.FC = () => {
       _audioContexts.push(audioCtx)
       const audioAnalyser = audioCtx.createAnalyser()
 
+      if (videoStream.getAudioTracks().length == 0) {
+        return
+      }
+
       const videoSource = audioCtx.createMediaStreamSource(videoStream)
       videoSource.connect(audioAnalyser)
       audioAnalyser.connect(audioCtx.destination)

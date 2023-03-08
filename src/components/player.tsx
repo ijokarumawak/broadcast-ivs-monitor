@@ -9,12 +9,16 @@ declare function registerIVSTech(
 ): void
 
 type Props = {
-  playBackUrl?: string,
-  obsUrl?: string,
+  playBackUrl?: string
+  obsUrl?: string
   obsPassword?: string
 }
 
-export const Player: React.FC<Props> = ({ playBackUrl, obsUrl, obsPassword }) => {
+export const Player: React.FC<Props> = ({
+  playBackUrl,
+  obsUrl,
+  obsPassword,
+}) => {
   const playerRef = useRef<VideoJsPlayer>()
   const videoElement = useRef<HTMLVideoElement>(null)
 
@@ -57,10 +61,7 @@ export const Player: React.FC<Props> = ({ playBackUrl, obsUrl, obsPassword }) =>
         playsInline
         muted={false}
       />
-      <ObsMediaStatus
-        obsUrl={obsUrl}
-        obsPassword={obsPassword}
-       />
+      <ObsMediaStatus obsUrl={obsUrl} obsPassword={obsPassword} />
     </div>
   )
 }

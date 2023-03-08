@@ -1,6 +1,9 @@
 import type { NextPage } from 'next'
+import Box, { BoxProps } from '@mui/material/Box'
 import { useRouter } from 'next/router'
 import { Player } from '../src/components/player'
+import { Clock } from '../src/components/clock'
+import { AudioCapture } from '../src/components/audioCapture'
 import { css } from '@mui/styled-engine'
 import { data } from '../src/data'
 
@@ -22,7 +25,15 @@ const Track: NextPage = () => {
       <div css={Overlay}>{router.query.trackId}</div>
       {data.map((track) => {
         if (track.name == router.query.trackId) {
-          return <Player playBackUrl={track.videoId} />
+          return (
+            <>
+              <Box>
+                <Player playBackUrl={track.videoId} />
+              </Box>
+              <Clock />
+              <AudioCapture />
+            </>
+          )
         }
       })}
     </div>
