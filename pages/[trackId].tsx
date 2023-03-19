@@ -28,7 +28,11 @@ const Track: NextPage = () => {
           return (
             <>
               <Box>
-                <Player playBackUrl={track.videoId} />
+                <Player
+                  playBackUrl={track.videoId}
+                  obsUrl={track['obsUrl']}
+                  obsPassword={track['obsPassword']}
+                />
               </Box>
               <Clock />
               <AudioCapture />

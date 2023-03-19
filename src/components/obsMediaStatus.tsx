@@ -96,7 +96,7 @@ export const ObsMediaStatus: React.FC<Props> = ({ obsUrl, obsPassword }) => {
       }
 
       setInterval(async () => {
-        console.log(mediaInputName['inputName'].length)
+        console.log('showing length ', mediaInputName['inputName'].length)
         if (mediaInputName['inputName'].length == 0) {
           return
         }
